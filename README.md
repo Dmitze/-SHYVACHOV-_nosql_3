@@ -1,6 +1,7 @@
 # SHYVACHOV_nosql_3 — Neo4j MovieLens Knowledge Graph
-
-## Схема графа
+## Запускав через докер
+![DockerDesktop](screenshot/DockerDesktop.png)
+#### Схема графа
 
 ```
 (User {userId, gender, age, occupation})
@@ -13,8 +14,6 @@
        ↓
 (Genre {name})
 ```
-#### Запускав через докер
-![DockerDesktop](screenshot/DockerDesktop.png)
 #### Схема графа Neo4j
 ![Схема графа Neo4j](screenshot/4.png)
 #### Neo4j Browser
