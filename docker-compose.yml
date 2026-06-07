@@ -1,0 +1,21 @@
+services:
+  neo4j:
+    image: neo4j:5.18-community        # версія Neo4j
+    container_name: neo4j_movielens    # ім'я контейнера
+    ports:
+      - "7474:7474"   # порт для веб-інтерфейсу (браузер)
+      - "7687:7687"   # порт для підключення драйверів
+    environment:
+      NEO4J_AUTH: neo4j/password123    # логін/пароль для входу
+      NEO4J_PLUGINS: '["apoc", "graph-data-science"]'  # плагіни
+      NEO4J_dbms_security_procedures_unrestricted: "apoc.*,gds.*"
+      NEO4J_dbms_security_procedures_allowlist: "apoc.*,gds.*"
+      NEO4J_dbms_memory_heap_initial__size: "512m"   # початкова пам'ять
+      NEO4J_dbms_memory_heap_max__size: "4G"
+    volumes:
+      - neo4j_data:/data               # де зберігаються дані бази
+      - neo4j_logs:/logs               # де зберігаються логи
+      - "D:\\GitHub\\NoSQL and Vector Databases\\-SHYVACHOV-_nosql_3\\import:/var/lib/neo4j/import"
+volumes:
+  neo4j_data:
+  neo4j_logs:
